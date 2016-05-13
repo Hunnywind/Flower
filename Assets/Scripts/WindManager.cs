@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
-
-    public static GameManager instance = null;
+public class WindManager : MonoBehaviour {
+    public static WindManager instance = null;
 
     void Awake()
     {
@@ -12,8 +11,8 @@ public class GameManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
     }
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
