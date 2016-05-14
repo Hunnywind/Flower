@@ -5,9 +5,20 @@ public class CGameMgr : MonoBehaviour {
 
     public GameObject _seed;
 
+    [SerializeField]
+    private float timer;
+
+
+    public delegate void MgrEvent();
+    public MgrEvent mgrEvent;
+
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 
+=======
+        StartCoroutine(TimerCoroutine());
+>>>>>>> origin/GunBranch
 	}
 	
 	// Update is called once per frame
@@ -22,6 +33,19 @@ public class CGameMgr : MonoBehaviour {
         {
             _seed.SetActive(true);
             _seed.GetComponent<CFlowerLevel4>().Init();
+        }
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(timer);
+            {
+                Debug.Log("Timer Active!");
+                if (mgrEvent != null)
+                    mgrEvent();
+            }
         }
     }
 }
