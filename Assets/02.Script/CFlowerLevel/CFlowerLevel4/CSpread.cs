@@ -32,9 +32,14 @@ public class CSpread : MonoBehaviour {
         tr = GetComponent<Transform>();
     }
 
-	// Use this for initialization
-	void Start () {
-        
+	void FixedUpdate()
+    {
+        foreach(CSeed seed in _seeds)
+        {
+            if (seed.gameObject.activeSelf)
+                return;
+        }
+        //StartCoroutine();
     }
 	
     // 폭발 힘(원형으로 터지는 효과)
