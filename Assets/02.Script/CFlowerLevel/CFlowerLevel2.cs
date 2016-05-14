@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
+    private int _clickCount;
     public void InitS()
     {
         Init();
