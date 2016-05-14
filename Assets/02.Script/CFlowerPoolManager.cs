@@ -71,6 +71,7 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel2.transform.position = pos;
                     createLevel2.gameObject.SetActive(true);
+                    createLevel2.InitS();
                     return;
                 }
             }
@@ -142,6 +143,7 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel1.transform.position = pos;
                     createLevel1.gameObject.SetActive(true);
+                    createLevel1.InitS();
                     return;
                 }
             }
@@ -152,7 +154,27 @@ public class CFlowerPoolManager : MonoBehaviour {
     {
         foreach (CFlowerLevel1 _level1Flower in level1Flower)
         {
-            //_level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+            _level1Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
         }
+        foreach (CFlowerLevel2 _level2Flower in level2Flower)
+        {
+            _level2Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
+        }
+        //foreach (CFlowerLevel3_1 _level1Flower in level3_1Flower)
+        //{
+        //    _level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+        //}
+        //foreach (CFlowerLevel3_2 _level1Flower in level3_2Flower)
+        //{
+        //    _level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+        //}
+        //foreach (CFlowerLevel3_3 _level1Flower in level3_3Flower)
+        //{
+        //    _level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+        //}
+        //foreach (CFlowerLevel4 _level1Flower in level4Flower)
+        //{
+        //    _level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+        //}
     }
 }

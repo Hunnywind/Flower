@@ -3,8 +3,10 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
-    private int _clickCount;
-    private bool _coroutine = false;
+    public void InitS()
+    {
+        Init();
+    }
 
     protected override void Init()
     {
@@ -30,6 +32,16 @@ public class CFlowerLevel2 : CPlant
     void OnDisable()
     {
         StopAllCoroutines();
+    }
+
+    void UpGrade()
+    {
+
+    }
+
+    public void Damage(int dmg)
+    {
+        DamagedPlant(dmg);
     }
 
     protected override void DamagedPlant(int dmg)

@@ -8,10 +8,19 @@ public class CPlant : MonoBehaviour
     protected int hp;
     protected int maxHp;
     protected int clickCount;
+    protected Health healthbar;
 
     protected virtual void Init()
     {
+        healthbar = HpPool.instance.AddHpbar(gameObject);
+        if(healthbar == null)
+        {
+            Debug.Log("healthbar null");
+            return;
+        }
         hp = maxHp;
+        healthbar.MaxHealth = maxHp;
+        healthbar.PreHealth = hp;
         clickCount = 0;
     }
 
@@ -41,12 +50,16 @@ public class CPlant : MonoBehaviour
     protected virtual void Start()
     {
         _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
+        
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-
+        if(healthbar != null)
+        {
+            healthbar.PreHealth = hp;
+        }
     }
 
     protected virtual void OnMouseDown()
@@ -56,6 +69,11 @@ public class CPlant : MonoBehaviour
 
     protected virtual void DamagedPlant(int dmg)
     {
-        
+
+    }
+
+    public void OnDisable()
+    {
+
     }
 }
