@@ -66,5 +66,9 @@ public class CFlowerPoolManager : MonoBehaviour {
     public void Damaged()
     {
         Debug.Log("으앙아픔");
+        foreach (CFlowerLevel1 _level1Flower in level1Flower)
+        {
+            _level1Flower.gameObject.SendMessage("DamagedPlant", 1);
+        }
     }
 }

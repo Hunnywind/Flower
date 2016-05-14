@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CPlant : MonoBehaviour {
+public class CPlant : MonoBehaviour
+{
 
     protected int hp;
     protected int maxHp;
+    protected int clickCount;
 
     public int Hp
     {
@@ -28,13 +30,35 @@ public class CPlant : MonoBehaviour {
             maxHp = value;
         }
     }
-	// Use this for initialization
-	protected virtual void Start () {
-	
-	}
+    // Use this for initialization
+    protected virtual void Start()
+    {
+
+    }
 
     // Update is called once per frame
-    protected virtual void Update () {
-	
-	}
+    protected virtual void Update()
+    {
+
+    }
+
+    virtual public void OnEnable()
+    {
+        hp = MaxHp;
+        clickCount = 0;
+    }
+
+    public void OnMouseDown()
+    {
+        clickCount++;
+    }
+
+    public void DamagedPlant(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
