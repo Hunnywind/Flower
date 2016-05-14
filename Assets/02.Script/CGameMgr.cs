@@ -7,7 +7,7 @@ public class CGameMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -15,13 +15,13 @@ public class CGameMgr : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _seed.SetActive(true);
-            _seed.GetComponent<CSpread>().SpreadInit();
+            _seed.GetComponent<CFlowerLevel4>().SpreadInit();
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
             _seed.SetActive(true);
-            _seed.GetComponent<CSpread>().Init();
+            _seed.GetComponent<CFlowerLevel4>().Init();
         }
     }
 }

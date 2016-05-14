@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CSprout : MonoBehaviour {
+public class CFlowerLevel2 : MonoBehaviour {
 
     private CFlowerPoolManager cfPoolManager;
 
