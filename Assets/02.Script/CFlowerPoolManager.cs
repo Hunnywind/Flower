@@ -102,6 +102,8 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel3_2.transform.position = pos;
                     createLevel3_2.gameObject.SetActive(true);
+                    createLevel3_2.InitS();
+                    createLevel3_2.BeeSpwanStart();
                     return;
                 }
             }
@@ -116,6 +118,8 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel3_3.transform.position = pos;
                     createLevel3_3.gameObject.SetActive(true);
+                    createLevel3_3.InitS();
+                    createLevel3_3.BeeSpwanStart();
                     return;
                 }
             }

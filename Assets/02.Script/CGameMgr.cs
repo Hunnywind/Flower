@@ -17,8 +17,9 @@ public class CGameMgr : MonoBehaviour {
         mgrEvent += GameObject.Find("WindMgr").GetComponent<CWindMgr>().ChangeWind;
         mgrEvent += GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>().Damaged;
         StartCoroutine(TimerCoroutine());
-
-	}
+        _seed.SetActive(true);
+        _seed.GetComponent<CFlowerLevel4>().InitS();
+    }
 	
 	// Update is called once per frame
 	void Update () {
