@@ -129,6 +129,7 @@ public class CFlowerPoolManager : MonoBehaviour {
                 if (!createLevel4.gameObject.activeSelf)
                 {
                     createLevel4.transform.position = pos;
+                    createLevel4.InitS();
                     createLevel4.gameObject.SetActive(true);
                     return;
                 }

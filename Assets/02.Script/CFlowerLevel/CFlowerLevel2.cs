@@ -84,6 +84,7 @@ public class CFlowerLevel2 : CPlant
             case 4:
             case 5:
                 _cFlowerMgr.FlowerLevel_Click(2, transform.position);
+                Clean();
                 break;
             case 6:
             case 7:
@@ -91,9 +92,11 @@ public class CFlowerLevel2 : CPlant
             case 9:
             case 10:
                 _cFlowerMgr.FlowerLevel_Click(3, transform.position);
+                Clean();
                 break;
             default:
                 _cFlowerMgr.FlowerLevel_Click(4, transform.position);
+                Clean();
                 break;
         }
         gameObject.SetActive(false);

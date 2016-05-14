@@ -37,7 +37,7 @@ public class CFlowerLevel3_1 : CPlant {
         while (_beeCount <= 3)
         {
             int rate = Random.Range(0, 10);
-            if (rate < 7)
+            if (rate < 2)
             {
                 Vector3 pos = transform.position;
                 pos.x += (Random.Range(10f, 15f));
@@ -64,5 +64,18 @@ public class CFlowerLevel3_1 : CPlant {
             gameObject.SetActive(false);
         }
     }
+    public void Damage(int dmg)
+    {
+        DamagedPlant(dmg);
+    }
 
+    protected override void DamagedPlant(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            Clean();
+            gameObject.SetActive(false);
+        }
+    }
 }
