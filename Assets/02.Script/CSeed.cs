@@ -14,6 +14,8 @@ public class CSeed : MonoBehaviour {
     
     private Rigidbody _rigidbody;
 
+    private CFlowerPoolManager cfPoolManager;
+
 
     public void Init()
     {
@@ -40,6 +42,7 @@ public class CSeed : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _cwindMgr = GameObject.Find("WindMgr").GetComponent<CWindMgr>();
+        cfPoolManager = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
 
         // 재사용을 위해 초기 값 저장
         _preTr = transform.position;
@@ -67,5 +70,16 @@ public class CSeed : MonoBehaviour {
         _windDirNomal[6] = new Vector3(-1, 0, 0);
         _windDirNomal[7] = new Vector3(-1, 0, 1);
         _windDirNomal[7] = _windDirNomal[7].normalized;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Floor")
+        {
+            Vector3 pos = transform.position;
+            pos.y = 0f;
+            cfPoolManager.SproutEnabled(pos);
+            gameObject.SetActive(false);
+        }
     }
 }
