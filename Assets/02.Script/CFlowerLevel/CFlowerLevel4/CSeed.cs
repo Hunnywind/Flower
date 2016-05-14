@@ -83,6 +83,8 @@ public class CSeed : MonoBehaviour {
     {
         if (collider.gameObject.tag == "Floor")
         {
+
+
             Vector3 pos = transform.position;
             pos.y = 0f;
             cfPoolManager.FlowerLevel_Click(6, pos);

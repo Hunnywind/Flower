@@ -5,7 +5,7 @@ public class CSpread : MonoBehaviour {
 
     public CSeed[] _seeds;
     public CFlowerLevel4 _flowerLevel4;
-
+    
     bool _isSpread = false;
 
     private Transform tr;

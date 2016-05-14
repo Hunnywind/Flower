@@ -8,6 +8,8 @@ public class CFlowerLevel4 : CPlant {
     public BoxCollider _boxCollider;
     public CWindAnim _cwindAnim;
 
+    
+    
     protected override void OnMouseDown()
     {
         Clean();
@@ -21,6 +23,7 @@ public class CFlowerLevel4 : CPlant {
         _cwindAnim = GetComponentInChildren<CWindAnim>();
         _boxCollider = GetComponent<BoxCollider>();
         _spread = GetComponentInChildren<CSpread>();
+        
         
     }
 
