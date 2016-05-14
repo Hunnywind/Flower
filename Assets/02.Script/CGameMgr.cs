@@ -14,6 +14,8 @@ public class CGameMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        mgrEvent += GameObject.Find("WindMgr").GetComponent<CWindMgr>().ChangeWind;
+        mgrEvent += GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>().Damaged;
         StartCoroutine(TimerCoroutine());
 
 	}

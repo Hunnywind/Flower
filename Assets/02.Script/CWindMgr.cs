@@ -12,17 +12,11 @@ public class CWindMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine("ChangeWindCoroutine");
 	}
 	
-    // N초마다 바람의 방향, 세기 체인지
-    IEnumerator ChangeWindCoroutine()
+    public void ChangeWind()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(1.0f);
-            _windDir = (WINDROT)Random.Range(0, 8);
-            _windSpeed = (WINDSPEED)Random.Range(0, 3);
-        }
+        _windDir = (WINDROT)Random.Range(0, 8);
+        _windSpeed = (WINDSPEED)Random.Range(0, 3);
     }
 }

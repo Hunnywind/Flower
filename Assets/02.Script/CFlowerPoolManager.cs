@@ -63,5 +63,8 @@ public class CFlowerPoolManager : MonoBehaviour {
             }
         }
     }
-
+    public void Damaged()
+    {
+        Debug.Log("으앙아픔");
+    }
 }
