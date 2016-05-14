@@ -72,7 +72,6 @@ public class CPlant : MonoBehaviour
     }
     public void Clean()
     {
-        Debug.Log("Clean!");
         if (healthbar != null)
         {
             healthbar.Disable();

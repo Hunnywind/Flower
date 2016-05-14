@@ -13,6 +13,7 @@ public class CFlowerLevel2 : CPlant
     {
         maxHp = 5;
         base.Init();
+        Clean();
     }
 
     void OnEnable()
