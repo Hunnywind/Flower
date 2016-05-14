@@ -3,6 +3,11 @@ using System.Collections;
 
 public class CFlowerLevel1 : CPlant
 {
+    public void InitS()
+    {
+        Init();
+    }
+
     protected override void Init()
     {
         maxHp = 30;
@@ -24,4 +29,20 @@ public class CFlowerLevel1 : CPlant
     protected override void Update () {
 	
 	}
+
+    public void Damage(int dmg)
+    {
+        DamagedPlant(dmg);
+    }
+
+    protected override void DamagedPlant(int dmg)
+    {
+        hp -= dmg;
+        Debug.Log(hp);
+        if (hp <= 0)
+        {
+            gameObject.SetActive(false);
+
+        }
+    }
 }

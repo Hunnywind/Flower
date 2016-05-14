@@ -3,7 +3,11 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
-    
+    public void InitS()
+    {
+        Init();
+    }
+
     protected override void Init()
     {
         maxHp = 5;
@@ -34,6 +38,11 @@ public class CFlowerLevel2 : CPlant
     void UpGrade()
     {
 
+    }
+
+    public void Damage(int dmg)
+    {
+        DamagedPlant(dmg);
     }
 
     protected override void DamagedPlant(int dmg)
