@@ -41,7 +41,6 @@ public class CGameMgr : MonoBehaviour {
         {
             yield return new WaitForSeconds(timer);
             {
-                Debug.Log("Timer Active!");
                 if (mgrEvent != null)
                     mgrEvent();
             }

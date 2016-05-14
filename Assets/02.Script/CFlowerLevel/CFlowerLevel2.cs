@@ -3,37 +3,33 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
-    
+    private int _clickCount;
+    private bool _coroutine = false;
+
     protected override void Init()
     {
         maxHp = 5;
         base.Init();
     }
-    protected override void OnMouseDown()
+
+    void OnEnable()
     {
-        
+        StartCoroutine("MouseTouch");
     }
 
-    // Use this for initialization
+    void OnMouseDown()
+    {
+        ++_clickCount;
+    }
+
     protected override void Start()
     {
         base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-
-    }
-
     void OnDisable()
     {
         StopAllCoroutines();
-    }
-
-    void UpGrade()
-    {
-
     }
 
     protected override void DamagedPlant(int dmg)
@@ -61,5 +57,33 @@ public class CFlowerLevel2 : CPlant
             }
 
         }
+    }
+
+    IEnumerator MouseTouch()
+    {
+        yield return new WaitForSeconds(3f);
+        switch (_clickCount)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                _cFlowerMgr.FlowerLevel_Click(2, transform.position);
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                _cFlowerMgr.FlowerLevel_Click(3, transform.position);
+                break;
+            default:
+                _cFlowerMgr.FlowerLevel_Click(4, transform.position);
+                break;
+        }
+        gameObject.SetActive(false);
+
     }
 }

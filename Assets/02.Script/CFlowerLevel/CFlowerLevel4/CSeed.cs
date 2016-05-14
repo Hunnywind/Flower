@@ -9,13 +9,20 @@ public class CSeed : MonoBehaviour {
     public float[] _windPower;  // 바람 세기
     private Vector3[] _windDirNomal = new Vector3[8];   //바람 방향
 
-    private Vector3 _preTr;    // 초기 position 값 저장 
-    private Quaternion _preQr;  // 초기 rotation 값 저장
+    public Vector3 _preTr;    // 초기 position 값 저장 
+    public Quaternion _preQr;  // 초기 rotation 값 저장
     
     private Rigidbody _rigidbody;
 
     private CFlowerPoolManager cfPoolManager;
 
+
+    public void SetTr()
+    {
+        // 재사용을 위해 초기 값 저장
+        _preTr = transform.position;
+        _preQr = transform.rotation;
+    }
 
     public void Init()
     {
@@ -79,6 +86,7 @@ public class CSeed : MonoBehaviour {
             Vector3 pos = transform.position;
             pos.y = 0f;
             cfPoolManager.FlowerLevel_Click(6, pos);
+            Init();
             gameObject.SetActive(false);
         }
     }

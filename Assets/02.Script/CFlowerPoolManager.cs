@@ -13,20 +13,12 @@ public class CFlowerPoolManager : MonoBehaviour {
     private CFlowerLevel3_3[] level3_3Flower;
     private GameObject level4Pool;
     private CFlowerLevel4[] level4Flower;
-    private GameObject bee;
-    private CBee[] cBee;
 
-
-
-
-
-   // Use this for initialization
    void Start () {
         level1Pool = GameObject.Find("FlowerLevel1Pool");
         level2Pool = GameObject.Find("FlowerLevel2Pool");
         level3Pool = GameObject.Find("FlowerLevel3Pool");
         level4Pool = GameObject.Find("FlowerLevel4Pool");
-        bee = GameObject.Find("BeePool");
 
         level1Flower = level1Pool.GetComponentsInChildren<CFlowerLevel1>();
         level2Flower = level2Pool.GetComponentsInChildren<CFlowerLevel2>();
@@ -34,7 +26,6 @@ public class CFlowerPoolManager : MonoBehaviour {
         level3_2Flower = level3Pool.GetComponentsInChildren<CFlowerLevel3_2>();
         level3_3Flower = level3Pool.GetComponentsInChildren<CFlowerLevel3_3>();
         level4Flower = level4Pool.GetComponentsInChildren<CFlowerLevel4>();
-        cBee = bee.GetComponentsInChildren<CBee>();
 
         SetActiveFalse();
    }
@@ -66,10 +57,6 @@ public class CFlowerPoolManager : MonoBehaviour {
         {
             _level4Flower.gameObject.SetActive(false);
         }
-        foreach (CBee _bee in cBee)
-        {
-            _bee.gameObject.SetActive(false);
-        }
     }
 
     public void FlowerLevel_Click(int flowerLevel, Vector3 pos)
@@ -98,6 +85,7 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel3_1.transform.position = pos;
                     createLevel3_1.gameObject.SetActive(true);
+                    createLevel3_1.BeeSpwanStart();
                     return;
                 }
             }
@@ -162,7 +150,6 @@ public class CFlowerPoolManager : MonoBehaviour {
 
     public void Damaged()
     {
-        Debug.Log("으앙아픔");
         foreach (CFlowerLevel1 _level1Flower in level1Flower)
         {
             //_level1Flower.gameObject.SendMessage("DamagedPlant", 1);

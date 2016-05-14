@@ -26,6 +26,7 @@ public class CSpread : MonoBehaviour {
     {
         foreach(CSeed seed in _seeds )
         {
+            seed.SetTr();
             seed.Spread();
             Spread();
         }
@@ -71,6 +72,7 @@ public class CSpread : MonoBehaviour {
             seed.Init();
             
         }
+        _flowerLevel4._boxCollider.enabled = true;
         _flowerLevel4.gameObject.SetActive(false);
     }
 }
