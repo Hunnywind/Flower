@@ -5,6 +5,8 @@ public class CSpread : MonoBehaviour {
 
     public CSeed[] _seeds;
     public CFlowerLevel4 _flowerLevel4;
+    
+    bool _isSpread = false;
 
     private Transform tr;
 
@@ -14,7 +16,7 @@ public class CSpread : MonoBehaviour {
     {
         foreach (CSeed seed in _seeds)
         {
-            seed.gameObject.SetActive(true);
+            seed.gameObject.SetActive(false);
             seed.Init();
             
         }
@@ -26,6 +28,7 @@ public class CSpread : MonoBehaviour {
     {
         foreach(CSeed seed in _seeds )
         {
+            seed.gameObject.SetActive(true);
             seed.SetTr();
             seed.Spread();
             Spread();
@@ -40,11 +43,17 @@ public class CSpread : MonoBehaviour {
 
 	void FixedUpdate()
     {
+        if (!_isSpread)
+            return;
+
         foreach(CSeed seed in _seeds)
         {
             if (seed.gameObject.activeSelf)
                 return;
         }
+
+        _isSpread = true;
+
         StartCoroutine("ReStartCoroutine");
     }
 	
@@ -65,15 +74,11 @@ public class CSpread : MonoBehaviour {
 
     IEnumerator ReStartCoroutine()
     {
+        
         yield return new WaitForSeconds(1.5f);
-        foreach (CSeed seed in _seeds)
-        {
-            seed.gameObject.SetActive(true);
-            seed.Init();
-            
-        }
+        
         _flowerLevel4._boxCollider.enabled = true;
-        _flowerLevel4.Clean();
+        _flowerLevel4._cwindAnim.gameObject.SetActive(true);
         _flowerLevel4.gameObject.SetActive(false);
     }
 }
