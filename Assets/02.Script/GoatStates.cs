@@ -29,6 +29,10 @@ namespace GoatStates
                 entity.transform.Translate((FirstLocation - entity.transform.position) * Time.deltaTime, Space.World);
                 if (MovingDistance > Vector3.Distance(entity.transform.position, FirstLocation))
                 {
+                    int x = UnityEngine.Random.Range(-5, 6);
+                    int z = UnityEngine.Random.Range(-5, 6);
+                    SecondLocation.x += x;
+                    SecondLocation.z += z;
                     entity.transform.LookAt(SecondLocation);
                     isFirstGo = false;
                 }
@@ -38,6 +42,10 @@ namespace GoatStates
                 entity.transform.Translate((SecondLocation - entity.transform.position) * Time.deltaTime, Space.World);
                 if (MovingDistance > Vector3.Distance(entity.transform.position, SecondLocation))
                 {
+                    int x = UnityEngine.Random.Range(-5, 6);
+                    int z = UnityEngine.Random.Range(-5, 6);
+                    FirstLocation.x += x;
+                    FirstLocation.z += z;
                     entity.transform.LookAt(FirstLocation);
                     isFirstGo = true;
                 }
