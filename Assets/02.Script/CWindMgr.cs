@@ -25,7 +25,4 @@ public class CWindMgr : MonoBehaviour {
             _windSpeed = (WINDSPEED)Random.Range(0, 3);
         }
     }
-
-
-
 }
