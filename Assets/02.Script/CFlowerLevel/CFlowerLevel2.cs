@@ -92,7 +92,6 @@ public class CFlowerLevel2 : CPlant
             case 8:
             case 9:
             case 10:
-                Debug.Log("3-2 Create");
                 _cFlowerMgr.FlowerLevel_Click(3, transform.position);
                 Clean();
                 break;
