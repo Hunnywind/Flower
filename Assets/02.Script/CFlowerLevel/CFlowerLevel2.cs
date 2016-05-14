@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
+    public CWindAnim _cAnim;
+
     private int _clickCount;
     public void InitS()
     {
@@ -21,14 +23,23 @@ public class CFlowerLevel2 : CPlant
         StartCoroutine("MouseTouch");
     }
 
-    void OnMouseDown()
+    protected override void OnMouseDown()
     {
+        base.OnMouseDown();
         ++_clickCount;
+        _cAnim.Hit();
+    }
+
+    void Awake()
+    {
+        _cAnim = GetComponentInChildren<CWindAnim>();
     }
 
     protected override void Start()
     {
         base.Start();
+
+        _cAnim.GetComponentInChildren<CWindAnim>();
     }
 
     void OnDisable()
