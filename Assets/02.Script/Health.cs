@@ -9,6 +9,7 @@ public class Health : MonoBehaviour {
     private Scrollbar HealthBar;
 
     private GameObject target;
+    [SerializeField]
     private Vector3 offset;
 
     public int MaxHealth
@@ -54,5 +55,12 @@ public class Health : MonoBehaviour {
         this.transform.FindChild("Mask").GetComponent<Image>().enabled = false;
         this.transform.FindChild("Mask").FindChild("Health").GetComponent<Image>().enabled = false;
         this.transform.FindChild("Frame").GetComponent<Image>().enabled = false;
+    }
+    public void Enable()
+    {
+        this.transform.FindChild("Background").GetComponent<Image>().enabled = true;
+        this.transform.FindChild("Mask").GetComponent<Image>().enabled = true;
+        this.transform.FindChild("Mask").FindChild("Health").GetComponent<Image>().enabled = true;
+        this.transform.FindChild("Frame").GetComponent<Image>().enabled = true;
     }
 }

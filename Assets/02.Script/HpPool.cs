@@ -36,6 +36,7 @@ public class HpPool : MonoBehaviour {
             {
                 bar.SetTarget(obj);
                 bar.gameObject.SetActive(true);
+                bar.Enable();
                 return bar;
             }
         }

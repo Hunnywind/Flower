@@ -12,6 +12,12 @@ public class CPlant : MonoBehaviour
 
     protected virtual void Init()
     {
+        healthbar = HpPool.instance.AddHpbar(gameObject);
+        if(healthbar == null)
+        {
+            Debug.Log("healthbar null");
+            return;
+        }
         hp = maxHp;
         healthbar.MaxHealth = maxHp;
         healthbar.PreHealth = hp;
@@ -44,7 +50,7 @@ public class CPlant : MonoBehaviour
     protected virtual void Start()
     {
         _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
-        healthbar = HpPool.instance.AddHpbar(gameObject);
+        
     }
 
     // Update is called once per frame
