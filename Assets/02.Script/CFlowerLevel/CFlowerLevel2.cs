@@ -7,7 +7,7 @@ public class CFlowerLevel2 : CPlant
     private CFlowerPoolManager cfPoolManager;
     protected override void Init()
     {
-        maxHp = 20;
+        maxHp = 5;
         base.Init();
     }
     protected override void OnMouseDown()
@@ -35,5 +35,15 @@ public class CFlowerLevel2 : CPlant
     void UpGrade()
     {
 
+    }
+
+    protected override void DamagedPlant(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            // _cFlowerMgr.FlowerLevel_Click(2, transform.position);
+            //gameObject.SetActive(false);
+        }
     }
 }
