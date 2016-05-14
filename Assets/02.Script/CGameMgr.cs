@@ -14,11 +14,8 @@ public class CGameMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-<<<<<<< HEAD
-
-=======
         StartCoroutine(TimerCoroutine());
->>>>>>> origin/GunBranch
+
 	}
 	
 	// Update is called once per frame
