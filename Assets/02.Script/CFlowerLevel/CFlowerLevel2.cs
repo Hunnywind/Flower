@@ -53,19 +53,19 @@ public class CFlowerLevel2 : CPlant
             if (clickCount < 5)
             {
                 _cFlowerMgr.FlowerLevel_Click(2, transform.position);
-                
+                Clean();
                 gameObject.SetActive(false);
             }
             else if (clickCount < 10)
             {
                 _cFlowerMgr.FlowerLevel_Click(3, transform.position);
-
+                Clean();
                 gameObject.SetActive(false);
             }
             else
             {
                 _cFlowerMgr.FlowerLevel_Click(4, transform.position);
-
+                Clean();
                 gameObject.SetActive(false);
             }
 

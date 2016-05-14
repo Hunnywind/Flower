@@ -17,6 +17,7 @@ public class CFlowerLevel1 : CPlant
     protected override void OnMouseDown()
     {
         _cFlowerMgr.FlowerLevel_Click(1, transform.position);
+        Clean();
         gameObject.SetActive(false);
     }
 
@@ -27,7 +28,7 @@ public class CFlowerLevel1 : CPlant
 
     // Update is called once per frame
     protected override void Update () {
-	
+        base.Update();
 	}
 
     public void Damage(int dmg)
@@ -38,11 +39,10 @@ public class CFlowerLevel1 : CPlant
     protected override void DamagedPlant(int dmg)
     {
         hp -= dmg;
-        Debug.Log(hp);
         if (hp <= 0)
         {
+            Clean();
             gameObject.SetActive(false);
-
         }
     }
 }

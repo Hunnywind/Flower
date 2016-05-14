@@ -26,9 +26,30 @@ public class CFlowerLevel4 : CPlant {
         _spread.SpreadInit();
     }
 
-    public void Init()
+    public void InitS()
     {
-        _spread.Init();
+        Init();
+    }
+
+    protected override void Init()
+    {
+        maxHp = 15;
+        base.Init();
+    }
+
+    public void Damage(int dmg)
+    {
+        DamagedPlant(dmg);
+    }
+
+    protected override void DamagedPlant(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            Clean();
+            gameObject.SetActive(false);
+        }
     }
 
 }

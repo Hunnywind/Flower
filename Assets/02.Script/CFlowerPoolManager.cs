@@ -86,6 +86,7 @@ public class CFlowerPoolManager : MonoBehaviour {
                 {
                     createLevel3_1.transform.position = pos;
                     createLevel3_1.gameObject.SetActive(true);
+                    createLevel3_1.InitS();
                     createLevel3_1.BeeSpwanStart();
                     return;
                 }
@@ -159,6 +160,22 @@ public class CFlowerPoolManager : MonoBehaviour {
         foreach (CFlowerLevel2 _level2Flower in level2Flower)
         {
             _level2Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
+        }
+        foreach (CFlowerLevel3_1 _level3Flower in level3_1Flower)
+        {
+            _level3Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
+        }
+        foreach (CFlowerLevel3_2 _level3Flower in level3_2Flower)
+        {
+            _level3Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
+        }
+        foreach (CFlowerLevel3_3 _level3Flower in level3_3Flower)
+        {
+            _level3Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
+        }
+        foreach (CFlowerLevel4 _level4Flower in level4Flower)
+        {
+            _level4Flower.gameObject.SendMessage("Damage", 1, SendMessageOptions.DontRequireReceiver);
         }
         //foreach (CFlowerLevel3_1 _level1Flower in level3_1Flower)
         //{

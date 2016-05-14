@@ -31,7 +31,7 @@ public class CGameMgr : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             _seed.SetActive(true);
-            _seed.GetComponent<CFlowerLevel4>().Init();
+            _seed.GetComponent<CFlowerLevel4>().InitS();
         }
     }
 

@@ -73,6 +73,7 @@ public class CSpread : MonoBehaviour {
             
         }
         _flowerLevel4._boxCollider.enabled = true;
+        _flowerLevel4.Clean();
         _flowerLevel4.gameObject.SetActive(false);
     }
 }

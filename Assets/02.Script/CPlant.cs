@@ -13,15 +13,14 @@ public class CPlant : MonoBehaviour
     protected virtual void Init()
     {
         healthbar = HpPool.instance.AddHpbar(gameObject);
-        if(healthbar == null)
-        {
-            Debug.Log("healthbar null");
-            return;
-        }
         hp = maxHp;
-        healthbar.MaxHealth = maxHp;
-        healthbar.PreHealth = hp;
         clickCount = 0;
+        if (healthbar != null)
+        {
+            
+            healthbar.MaxHealth = maxHp;
+            healthbar.PreHealth = hp;
+        }
     }
 
     public int Hp
@@ -71,9 +70,23 @@ public class CPlant : MonoBehaviour
     {
 
     }
-
+    public void Clean()
+    {
+        Debug.Log("Clean!");
+        if (healthbar != null)
+        {
+            healthbar.Disable();
+            healthbar.gameObject.SetActive(false);
+            healthbar = null;
+        }
+    }
     public void OnDisable()
     {
-
+        //if (healthbar != null)
+        //{
+        //    healthbar.Disable();
+        //    healthbar.gameObject.SetActive(false);
+        //    healthbar = null;
+        //}
     }
 }

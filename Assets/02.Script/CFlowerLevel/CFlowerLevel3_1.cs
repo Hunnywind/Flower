@@ -6,7 +6,10 @@ public class CFlowerLevel3_1 : CPlant {
     private int _beeCount = 0;
     private CBee[] cBee;
 
-    
+    public void InitS()
+    {
+        Init();
+    }
 
     protected override void Init()
     {
@@ -56,6 +59,7 @@ public class CFlowerLevel3_1 : CPlant {
         {
             _cFlowerMgr.FlowerLevel_Click(5, transform.position);
             collider.transform.position = Vector3.zero;
+            Clean();
             collider.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
