@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CPlant : MonoBehaviour
 {
+    public CFlowerPoolManager _cFlowerMgr;
 
     protected int hp;
     protected int maxHp;
@@ -48,7 +49,7 @@ public class CPlant : MonoBehaviour
         clickCount = 0;
     }
 
-    public void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         clickCount++;
     }

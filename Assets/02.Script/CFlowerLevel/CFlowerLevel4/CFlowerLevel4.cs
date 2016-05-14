@@ -6,7 +6,7 @@ public class CFlowerLevel4 : MonoBehaviour {
     public CSpread _spread;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         _spread = GetComponentInChildren<CSpread>();
 	}
 

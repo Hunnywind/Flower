@@ -78,7 +78,7 @@ public class CSeed : MonoBehaviour {
         {
             Vector3 pos = transform.position;
             pos.y = 0f;
-            cfPoolManager.SproutEnabled(pos);
+            cfPoolManager.FlowerLevel_Click(4, pos);
             gameObject.SetActive(false);
         }
     }
