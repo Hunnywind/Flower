@@ -4,6 +4,7 @@ using System.Collections;
 public class CSpread : MonoBehaviour {
 
     public CSeed[] _seeds;
+    public CFlowerLevel4 _flowerLevel4;
 
     private Transform tr;
 
@@ -13,8 +14,11 @@ public class CSpread : MonoBehaviour {
     {
         foreach (CSeed seed in _seeds)
         {
+            seed.gameObject.SetActive(true);
             seed.Init();
+            
         }
+        _flowerLevel4.gameObject.SetActive(true);
     }
 
     // 씨앗을 퍼지게 하는 함수
@@ -30,6 +34,7 @@ public class CSpread : MonoBehaviour {
     void Awake()
     {
         tr = GetComponent<Transform>();
+        _flowerLevel4 = GetComponentInParent<CFlowerLevel4>();
     }
 
 	void FixedUpdate()
@@ -39,7 +44,7 @@ public class CSpread : MonoBehaviour {
             if (seed.gameObject.activeSelf)
                 return;
         }
-        //StartCoroutine();
+        StartCoroutine("ReStartCoroutine");
     }
 	
     // 폭발 힘(원형으로 터지는 효과)
@@ -55,5 +60,17 @@ public class CSpread : MonoBehaviour {
                 rbody.AddExplosionForce(50.0f, tr.position, 0.0f, 1.0f);
             }
         }
+    }
+
+    IEnumerator ReStartCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        foreach (CSeed seed in _seeds)
+        {
+            seed.gameObject.SetActive(true);
+            seed.Init();
+            
+        }
+        _flowerLevel4.gameObject.SetActive(false);
     }
 }
