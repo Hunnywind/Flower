@@ -51,14 +51,14 @@ public class CSpread : MonoBehaviour {
     void Spread()
     {
         Debug.Log("ddfdf");
-        Collider[] colls = Physics.OverlapSphere(tr.position, 1.0f);
+        Collider[] colls = Physics.OverlapSphere(tr.position, 1.8f);
         foreach (Collider coll in colls)
         {
             Rigidbody rbody = coll.GetComponent<Rigidbody>();
             if (rbody != null)
             {
                 rbody.mass = 1.0f;
-                rbody.AddExplosionForce(50.0f, tr.position, 0.0f, 10000.0f);
+                rbody.AddExplosionForce(50.0f, tr.position, 0.0f, 1.0f);
             }
         }
     }

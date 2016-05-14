@@ -9,6 +9,11 @@ public class CPlant : MonoBehaviour
     protected int maxHp;
     protected int clickCount;
 
+    protected virtual void Init()
+    {
+
+    }
+
     public int Hp
     {
         get
@@ -34,7 +39,7 @@ public class CPlant : MonoBehaviour
     // Use this for initialization
     protected virtual void Start()
     {
-
+        _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
     }
 
     // Update is called once per frame
