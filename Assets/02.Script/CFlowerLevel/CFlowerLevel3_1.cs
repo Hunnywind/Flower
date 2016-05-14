@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CFlowerLevel2 : CPlant
-{
-
-    private CFlowerPoolManager cfPoolManager;
+public class CFlowerLevel3_1 : CPlant {
+    
     protected override void Init()
     {
-        maxHp = 5;
+        maxHp = 20;
         base.Init();
     }
     protected override void OnMouseDown()
     {
-        
+
     }
 
     // Use this for initialization
@@ -35,15 +33,5 @@ public class CFlowerLevel2 : CPlant
     void UpGrade()
     {
 
-    }
-
-    protected override void DamagedPlant(int dmg)
-    {
-        hp -= dmg;
-        if (hp <= 0)
-        {
-            // _cFlowerMgr.FlowerLevel_Click(2, transform.position);
-            //gameObject.SetActive(false);
-        }
     }
 }

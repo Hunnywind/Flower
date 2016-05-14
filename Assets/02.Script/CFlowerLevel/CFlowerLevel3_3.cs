@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CFlowerLevel3 : MonoBehaviour {
+public class CFlowerLevel3_3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
