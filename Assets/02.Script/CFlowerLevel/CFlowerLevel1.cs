@@ -3,6 +3,12 @@ using System.Collections;
 
 public class CFlowerLevel1 : CPlant
 {
+    protected override void Init()
+    {
+        maxHp = 30;
+        base.Init();
+    }
+
     protected override void OnMouseDown()
     {
         _cFlowerMgr.FlowerLevel_Click(1, transform.position);

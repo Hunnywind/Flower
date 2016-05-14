@@ -3,8 +3,7 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
-
-    private CFlowerPoolManager cfPoolManager;
+    
     protected override void Init()
     {
         maxHp = 5;
@@ -42,8 +41,25 @@ public class CFlowerLevel2 : CPlant
         hp -= dmg;
         if (hp <= 0)
         {
-            // _cFlowerMgr.FlowerLevel_Click(2, transform.position);
-            //gameObject.SetActive(false);
+            if (clickCount < 5)
+            {
+                _cFlowerMgr.FlowerLevel_Click(2, transform.position);
+                
+                gameObject.SetActive(false);
+            }
+            else if (clickCount < 10)
+            {
+                _cFlowerMgr.FlowerLevel_Click(3, transform.position);
+
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                _cFlowerMgr.FlowerLevel_Click(4, transform.position);
+
+                gameObject.SetActive(false);
+            }
+
         }
     }
 }

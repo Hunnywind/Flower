@@ -66,6 +66,10 @@ public class CFlowerPoolManager : MonoBehaviour {
         {
             _level4Flower.gameObject.SetActive(false);
         }
+        foreach (CBee _bee in cBee)
+        {
+            _bee.gameObject.SetActive(false);
+        }
     }
 
     public void FlowerLevel_Click(int flowerLevel, Vector3 pos)
