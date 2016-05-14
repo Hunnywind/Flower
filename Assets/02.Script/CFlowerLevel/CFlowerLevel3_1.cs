@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CFlowerLevel2 : CPlant
-{
-
-    private CFlowerPoolManager cfPoolManager;
+public class CFlowerLevel3_1 : CPlant {
+    
     protected override void Init()
     {
         maxHp = 20;
@@ -12,7 +10,7 @@ public class CFlowerLevel2 : CPlant
     }
     protected override void OnMouseDown()
     {
-        
+
     }
 
     // Use this for initialization

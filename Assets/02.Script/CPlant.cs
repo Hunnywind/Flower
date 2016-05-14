@@ -59,6 +59,7 @@ public class CPlant : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
+            _cFlowerMgr.FlowerLevel_Click(2, transform.position);
             gameObject.SetActive(false);
         }
     }
