@@ -5,7 +5,11 @@ public class CFlowerLevel2 : CPlant
 {
 
     private CFlowerPoolManager cfPoolManager;
-
+    protected override void Init()
+    {
+        maxHp = 20;
+        base.Init();
+    }
     protected override void OnMouseDown()
     {
         _cFlowerMgr.FlowerLevel_Click(2, transform.position);

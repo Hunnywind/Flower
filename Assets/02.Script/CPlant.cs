@@ -11,7 +11,8 @@ public class CPlant : MonoBehaviour
 
     protected virtual void Init()
     {
-
+        hp = maxHp;
+        clickCount = 0;
     }
 
     public int Hp
@@ -46,12 +47,6 @@ public class CPlant : MonoBehaviour
     protected virtual void Update()
     {
 
-    }
-
-    virtual public void OnEnable()
-    {
-        hp = MaxHp;
-        clickCount = 0;
     }
 
     protected virtual void OnMouseDown()
