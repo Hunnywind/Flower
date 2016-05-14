@@ -2,24 +2,27 @@
 using System.Collections;
 
 public class CFlowerLevel4 : CPlant {
-
-
+    
     public CSpread _spread;
 
     public BoxCollider _boxCollider;
+    public CWindAnim _cwindAnim;
 
     protected override void OnMouseDown()
     {
+        Clean();
         _boxCollider.enabled = false;
-        SpreadInit();
-        
+        _cwindAnim.Hit();
+        StartCoroutine("HitCoroutine");
     }
 
 	// Use this for initialization
 	void Awake () {
+        _cwindAnim = GetComponentInChildren<CWindAnim>();
         _boxCollider = GetComponent<BoxCollider>();
         _spread = GetComponentInChildren<CSpread>();
-	}
+        
+    }
 
     public void SpreadInit()
     {
@@ -35,6 +38,13 @@ public class CFlowerLevel4 : CPlant {
     {
         maxHp = 15;
         base.Init();
+
+        _cwindAnim.gameObject.SetActive(true);
+        _boxCollider.enabled = true;
+        foreach(CSeed seed in _spread._seeds)
+        {
+            seed.gameObject.SetActive(false);
+        }
     }
 
     public void Damage(int dmg)
@@ -50,6 +60,13 @@ public class CFlowerLevel4 : CPlant {
             Clean();
             gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator HitCoroutine()
+    {
+        yield return new WaitForSeconds(0.7f);
+        SpreadInit();
+        _cwindAnim.gameObject.SetActive(false);
     }
 
 }
