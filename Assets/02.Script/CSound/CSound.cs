@@ -3,7 +3,9 @@ using System.Collections;
 
 public class CSound : MonoBehaviour {
 
-    public AudioClip _pangSound;
+    public enum SOUND { SEEDTOUCH, BLOOM, MEETSBEE, SEEDSPHERE, GROWTOUCH, BEE };
+
+    public AudioClip[] _sound;
     public AudioSource _audioSource;
 
     void Awake()
@@ -11,13 +13,9 @@ public class CSound : MonoBehaviour {
         _audioSource = GetComponent<AudioSource>();
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void OneShotSound(SOUND clip, Vector3 tr)
+    {
+        transform.position = tr;
+        _audioSource.PlayOneShot(_sound[(int)clip], 1.0f);
+    }
 }

@@ -3,12 +3,15 @@ using System.Collections;
 
 public class CFlowerLevel3_2 : CPlant
 {
+    public Transform _effectPos;
+    public Object _effect;
 
     private int _beeCount = 0;
     private CBee[] cBee;
 
     public void InitS()
     {
+        _cSound.OneShotSound(CSound.SOUND.BLOOM, transform.position);
         Init();
     }
 
@@ -58,6 +61,7 @@ public class CFlowerLevel3_2 : CPlant
     {
         if (collider.tag == "Bee")
         {
+            Instantiate(_effect, _effectPos.position, Quaternion.identity);
             _cFlowerMgr.FlowerLevel_Click(5, transform.position);
             collider.transform.position = Vector3.zero;
             Clean();

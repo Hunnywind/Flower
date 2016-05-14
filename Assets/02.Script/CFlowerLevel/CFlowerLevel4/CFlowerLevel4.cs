@@ -34,6 +34,7 @@ public class CFlowerLevel4 : CPlant {
 
     public void InitS()
     {
+        _cSound.OneShotSound(CSound.SOUND.MEETSBEE, transform.position);
         Init();
     }
 
@@ -68,6 +69,7 @@ public class CFlowerLevel4 : CPlant {
     IEnumerator HitCoroutine()
     {
         yield return new WaitForSeconds(0.7f);
+        _cSound.OneShotSound(CSound.SOUND.SEEDSPHERE, transform.position);
         SpreadInit();
         _cwindAnim.gameObject.SetActive(false);
     }

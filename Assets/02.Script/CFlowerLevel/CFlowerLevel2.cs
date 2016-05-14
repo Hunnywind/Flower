@@ -3,11 +3,18 @@ using System.Collections;
 
 public class CFlowerLevel2 : CPlant
 {
+    public Transform _effectPos;
+
+    public Object _effect;
+    public Object _hitEffect;
+
     public CWindAnim _cAnim;
 
     private int _clickCount;
     public void InitS()
     {
+        _cSound.OneShotSound(CSound.SOUND.SEEDTOUCH, transform.position);
+        Instantiate(_effect, _effectPos.position, Quaternion.identity);
         Init();
     }
 
@@ -26,6 +33,8 @@ public class CFlowerLevel2 : CPlant
     protected override void OnMouseDown()
     {
         base.OnMouseDown();
+        _cSound.OneShotSound(CSound.SOUND.GROWTOUCH, transform.position);
+        Instantiate(_hitEffect, _effectPos.position, Quaternion.identity);
         ++_clickCount;
         _cAnim.Hit();
     }

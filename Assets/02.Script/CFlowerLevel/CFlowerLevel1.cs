@@ -3,11 +3,11 @@ using System.Collections;
 
 public class CFlowerLevel1 : CPlant
 {
-
-    public Object _effect;
-
+    
+    
     public void InitS()
     {
+        
         Init();
     }
 
@@ -19,7 +19,7 @@ public class CFlowerLevel1 : CPlant
 
     protected override void OnMouseDown()
     {
-        Instantiate(_effect, transform.position, Quaternion.identity);
+        
         _cFlowerMgr.FlowerLevel_Click(1, transform.position);
         Clean();
         gameObject.SetActive(false);

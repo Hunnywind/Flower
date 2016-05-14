@@ -4,6 +4,7 @@ using System.Collections;
 public class CPlant : MonoBehaviour
 {
     public CFlowerPoolManager _cFlowerMgr;
+    public CSound _cSound;
 
     protected int hp;
     protected int maxHp;
@@ -49,6 +50,7 @@ public class CPlant : MonoBehaviour
     protected virtual void Start()
     {
         _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
+        _cSound = GameObject.Find("OneShotSound").GetComponent<CSound>();
         
     }
 
