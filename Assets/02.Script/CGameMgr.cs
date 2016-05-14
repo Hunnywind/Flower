@@ -9,6 +9,9 @@ public class CGameMgr : MonoBehaviour {
     private float timer;
 
 
+    public delegate void MgrEvent();
+    public MgrEvent mgrEvent;
+
 	// Use this for initialization
 	void Start () {
         StartCoroutine(TimerCoroutine());
@@ -36,6 +39,8 @@ public class CGameMgr : MonoBehaviour {
             yield return new WaitForSeconds(timer);
             {
                 Debug.Log("Timer Active!");
+                if (mgrEvent != null)
+                    mgrEvent();
             }
         }
     }
