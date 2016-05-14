@@ -5,9 +5,13 @@ public class CGameMgr : MonoBehaviour {
 
     public GameObject _seed;
 
+    [SerializeField]
+    private float timer;
+
+
 	// Use this for initialization
 	void Start () {
-	
+        StartCoroutine(TimerCoroutine());
 	}
 	
 	// Update is called once per frame
@@ -22,6 +26,17 @@ public class CGameMgr : MonoBehaviour {
         {
             _seed.SetActive(true);
             _seed.GetComponent<CSpread>().Init();
+        }
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(timer);
+            {
+                Debug.Log("Timer Active!");
+            }
         }
     }
 }
