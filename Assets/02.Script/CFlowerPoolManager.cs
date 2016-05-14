@@ -13,6 +13,8 @@ public class CFlowerPoolManager : MonoBehaviour {
     private CFlowerLevel3_3[] level3_3Flower;
     private GameObject level4Pool;
     private CFlowerLevel4[] level4Flower;
+    private GameObject bee;
+    private CBee[] cBee;
 
 
 
@@ -24,6 +26,7 @@ public class CFlowerPoolManager : MonoBehaviour {
         level2Pool = GameObject.Find("FlowerLevel2Pool");
         level3Pool = GameObject.Find("FlowerLevel3Pool");
         level4Pool = GameObject.Find("FlowerLevel4Pool");
+        bee = GameObject.Find("BeePool");
 
         level1Flower = level1Pool.GetComponentsInChildren<CFlowerLevel1>();
         level2Flower = level2Pool.GetComponentsInChildren<CFlowerLevel2>();
@@ -31,6 +34,7 @@ public class CFlowerPoolManager : MonoBehaviour {
         level3_2Flower = level3Pool.GetComponentsInChildren<CFlowerLevel3_2>();
         level3_3Flower = level3Pool.GetComponentsInChildren<CFlowerLevel3_3>();
         level4Flower = level4Pool.GetComponentsInChildren<CFlowerLevel4>();
+        cBee = bee.GetComponentsInChildren<CBee>();
 
         SetActiveFalse();
    }
@@ -109,7 +113,7 @@ public class CFlowerPoolManager : MonoBehaviour {
             }
         }
 
-        // 레벨2 클릭시 레벨 3_1 생성
+        // 레벨2 클릭시 레벨 3_3 생성
         if (flowerLevel == 4)
         {
             foreach (CFlowerLevel3_3 createLevel3_3 in level3_3Flower)
@@ -138,7 +142,7 @@ public class CFlowerPoolManager : MonoBehaviour {
         }
 
         // 레벨4 클릭시 레벨 1 생성
-        if (flowerLevel == 4)
+        if (flowerLevel == 6)
         {
             foreach (CFlowerLevel1 createLevel1 in level1Flower)
             {

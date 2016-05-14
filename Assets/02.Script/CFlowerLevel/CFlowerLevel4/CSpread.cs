@@ -50,7 +50,6 @@ public class CSpread : MonoBehaviour {
     // 폭발 힘(원형으로 터지는 효과)
     void Spread()
     {
-        Debug.Log("ddfdf");
         Collider[] colls = Physics.OverlapSphere(tr.position, 1.8f);
         foreach (Collider coll in colls)
         {
