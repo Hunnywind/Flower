@@ -16,6 +16,8 @@ public class CGameMgr : MonoBehaviour {
 	void Start () {
         mgrEvent += GameObject.Find("WindMgr").GetComponent<CWindMgr>().ChangeWind;
         mgrEvent += GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>().Damaged;
+        mgrEvent += CGoatPool.instance.AddTimer;
+
         StartCoroutine(TimerCoroutine());
         _seed.SetActive(true);
         _seed.GetComponent<CFlowerLevel4>().InitS();
