@@ -5,6 +5,8 @@ public class CSound : MonoBehaviour {
 
     public enum SOUND { SEEDTOUCH, BLOOM, MEETSBEE, SEEDSPHERE, GROWTOUCH, BEE };
 
+    public SOUND _soundClip = SOUND.SEEDTOUCH;
+
     public AudioClip[] _sound;
     public AudioSource _audioSource;
 

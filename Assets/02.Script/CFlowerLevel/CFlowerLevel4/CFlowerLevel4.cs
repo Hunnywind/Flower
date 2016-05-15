@@ -8,8 +8,6 @@ public class CFlowerLevel4 : CPlant {
     public BoxCollider _boxCollider;
     public CWindAnim _cwindAnim;
 
-    
-    
     protected override void OnMouseDown()
     {
         Clean();
@@ -18,7 +16,6 @@ public class CFlowerLevel4 : CPlant {
         StartCoroutine("HitCoroutine");
     }
 
-	// Use this for initialization
 	void Awake () {
         _cwindAnim = GetComponentInChildren<CWindAnim>();
         _boxCollider = GetComponent<BoxCollider>();
@@ -34,7 +31,6 @@ public class CFlowerLevel4 : CPlant {
 
     public void InitS()
     {
-        _cSound.OneShotSound(CSound.SOUND.MEETSBEE, transform.position);
         Init();
     }
 
@@ -42,7 +38,7 @@ public class CFlowerLevel4 : CPlant {
     {
         maxHp = 15;
         base.Init();
-
+        _cSound.OneShotSound(CSound.SOUND.MEETSBEE, transform.position);
         _cwindAnim.gameObject.SetActive(true);
         _boxCollider.enabled = true;
         foreach(CSeed seed in _spread._seeds)

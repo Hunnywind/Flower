@@ -13,7 +13,6 @@ public class CFlowerLevel2 : CPlant
     private int _clickCount;
     public void InitS()
     {
-        _cSound.OneShotSound(CSound.SOUND.SEEDTOUCH, transform.position);
         Instantiate(_effect, _effectPos.position, Quaternion.identity);
         Init();
     }
@@ -23,10 +22,12 @@ public class CFlowerLevel2 : CPlant
         maxHp = 5;
         base.Init();
         Clean();
+        _cSound.OneShotSound(CSound.SOUND.MEETSBEE, transform.position);
     }
 
-    void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         StartCoroutine("MouseTouch");
     }
 
@@ -51,8 +52,9 @@ public class CFlowerLevel2 : CPlant
         _cAnim.GetComponentInChildren<CWindAnim>();
     }
 
-    void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         StopAllCoroutines();
     }
 
@@ -77,7 +79,7 @@ public class CFlowerLevel2 : CPlant
                 Clean();
                 gameObject.SetActive(false);
             }
-            else if (clickCount < 10)
+            else if (clickCount < 20)
             {
                 _cFlowerMgr.FlowerLevel_Click(3, transform.position);
                 Clean();

@@ -4,7 +4,6 @@ using System.Collections;
 public class CFlowerLevel1 : CPlant
 {
     
-    
     public void InitS()
     {
         
@@ -25,12 +24,10 @@ public class CFlowerLevel1 : CPlant
         gameObject.SetActive(false);
     }
 
-    // Use this for initialization
     protected override void Start () {
         base.Start();
 	}
 
-    // Update is called once per frame
     protected override void Update () {
         base.Update();
 	}
@@ -49,4 +46,6 @@ public class CFlowerLevel1 : CPlant
             gameObject.SetActive(false);
         }
     }
+
+
 }

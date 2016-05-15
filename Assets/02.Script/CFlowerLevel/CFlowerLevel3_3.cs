@@ -11,7 +11,6 @@ public class CFlowerLevel3_3 : CPlant
 
     public void InitS()
     {
-        _cSound.OneShotSound(CSound.SOUND.BLOOM, transform.position);
         Init();
     }
 
@@ -19,6 +18,7 @@ public class CFlowerLevel3_3 : CPlant
     {
         maxHp = 20;
         base.Init();
+        _cSound.OneShotSound(CSound.SOUND.BLOOM, transform.position);
     }
 
     protected override void Start()
@@ -31,8 +31,9 @@ public class CFlowerLevel3_3 : CPlant
         StartCoroutine("BeeSpwan");
     }
 
-    void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         StopAllCoroutines();
     }
 

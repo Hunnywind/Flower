@@ -13,12 +13,13 @@ public class CPlant : MonoBehaviour
 
     protected virtual void Init()
     {
+        _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
+        _cSound = GameObject.Find("OneShotSound").GetComponent<CSound>();
         healthbar = HpPool.instance.AddHpbar(gameObject);
         hp = maxHp;
         clickCount = 0;
         if (healthbar != null)
         {
-            
             healthbar.MaxHealth = maxHp;
             healthbar.PreHealth = hp;
         }
@@ -46,15 +47,14 @@ public class CPlant : MonoBehaviour
             maxHp = value;
         }
     }
-    // Use this for initialization
+
+    
     protected virtual void Start()
     {
-        _cFlowerMgr = GameObject.Find("FlowerPoolManager").GetComponent<CFlowerPoolManager>();
-        _cSound = GameObject.Find("OneShotSound").GetComponent<CSound>();
+        
         
     }
 
-    // Update is called once per frame
     protected virtual void Update()
     {
         if(healthbar != null)
@@ -81,13 +81,18 @@ public class CPlant : MonoBehaviour
             healthbar = null;
         }
     }
-    public void OnDisable()
+
+    protected virtual void OnEnable()
     {
-        //if (healthbar != null)
-        //{
-        //    healthbar.Disable();
-        //    healthbar.gameObject.SetActive(false);
-        //    healthbar = null;
-        //}
+        if (!CGameMgr._gameStart) return;
+        ++CGameMgr.flowerCounting;
+        Debug.Log(CGameMgr.flowerCounting);
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (!CGameMgr._gameStart) return;
+        --CGameMgr.flowerCounting;
+        Debug.Log(CGameMgr.flowerCounting);
     }
 }
