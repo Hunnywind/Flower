@@ -8,15 +8,21 @@ public class CWindMgr : MonoBehaviour {
 
     public WINDROT _windDir = WINDROT.N;
     public WINDSPEED _windSpeed = WINDSPEED.NORMAL;
-    
 
+    private int timer = 0;
 	// Use this for initialization
 	void Start () {
+       
 	}
 	
     public void ChangeWind()
     {
-        _windDir = (WINDROT)Random.Range(0, 8);
-        _windSpeed = (WINDSPEED)Random.Range(0, 3);
+        timer++;
+        if (timer > 1)
+        {
+            timer = 0;
+            _windDir = (WINDROT)Random.Range(0, 8);
+            _windSpeed = (WINDSPEED)Random.Range(0, 3);
+        }
     }
 }
